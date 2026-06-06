@@ -2,47 +2,77 @@
 
 Mobil Programlama dersi dönem sonu ödevi. Kullanıcının film/dizi izleme listesini tuttuğu basit bir Android uygulamasıdır.
 
+## Teslim İçeriği
+
+Bu ödev tek ZIP dosyası halinde yüklenmiştir:
+
+- `film-listem.apk` — Doğrudan kuruluma hazır uygulama dosyası
+- `kaynak-kod.zip` (veya kaynak kod klasörü) — Tüm Java/XML dosyaları, incelenebilir kaynak kodu
+
+**Hızlı test için:** `film-listem.apk` dosyasını bir Android telefona kopyalayıp kurmanız yeterlidir. Ekstra kurulum, anahtar girme veya yapılandırma gerekmez — Firebase ve OMDb API ayarları APK içerisine gömülüdür.
+
 ## Özellikler
 
 - Film/dizi ara (OMDb API ile)
 - Listeme ekle / listemden çıkar
 - Hangi filmi izledim işaretle
-- Tüm liste bulut veritabanında (Firebase Firestore) tutulur
+- Profil bilgileri (ad, favori tür, hakkımda)
+- Tüm veriler bulut veritabanında (Firebase Firestore) tutulur
 
 ## Kullanılan Teknolojiler
 
 - Dil: Java
-- 3 farklı Activity: `MainActivity` (Listem), `SearchActivity` (Arama), `DetailActivity` (Detay)
-- Veritabanı: Firebase Firestore (bulut)
-- Dış servis: OMDb API
+- 4 farklı Activity:
+  - `MainActivity` — Film listesi
+  - `SearchActivity` — Film/dizi arama
+  - `DetailActivity` — Film detayı
+  - `ProfileActivity` — Profil ve ayarlar
+- Veritabanı: Firebase Firestore (bulut) + SharedPreferences (yerel — profil için)
+- Dış servis (API): OMDb API
 - UI: Material Components, RecyclerView, CardView
 - Görsel yükleme: Glide
 - Ağ kütüphanesi: Retrofit + Gson
 
-## Kurulum
+## APK ile Hızlı Kurulum (Önerilen)
 
-### 1) OMDb API anahtarı al
-- [https://www.omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx) adresinden ücretsiz key al.
-- `app/src/main/java/com/example/odev/Constants.java` dosyasını aç ve `OMDB_API_KEY` değerini kendi anahtarınla değiştir.
+1. `film-listem.apk` dosyasını bir Android telefona kopyalayın (USB, e-mail, WhatsApp vb.)
+2. Telefonda APK dosyasına dokunun
+3. Çıkan uyarıda "Bilinmeyen kaynaklardan yüklemeye izin ver" seçeneğini onaylayın
+4. Uygulamayı kurun, açın, kullanın
 
-### 2) Firebase projesi bağla
-- [https://console.firebase.google.com](https://console.firebase.google.com) adresinden yeni bir proje aç.
-- Android uygulama ekle, package adı: `com.example.odev`
-- `google-services.json` dosyasını indir ve `app/` klasörüne yerleştir.
-- Firestore Database'i Test modunda başlat. Collection adı: `movies` (kod otomatik kullanır).
+Tüm Firebase ve OMDb API ayarları APK içerisindedir — ek bir adım gerekmez.
 
-### 3) Çalıştır
-- Android Studio'da projeyi aç.
-- Gradle sync.
-- Emülatör veya cihazda çalıştır.
+## Kaynak Koddan Çalıştırma (İsteğe Bağlı)
+
+Eğer kaynak kodu Android Studio'da derlemek isterseniz:
+
+### 1) Android Studio'da Aç
+- Kaynak kod ZIP'ini açın
+- Android Studio'da **File → Open** ile proje klasörünü seçin
+- Gradle Sync tamamlanmasını bekleyin
+
+### 2) OMDb API Anahtarı
+- OMDb API anahtarı zaten `app/src/main/java/com/example/odev/Constants.java` dosyasında tanımlıdır
+- Kendi anahtarınızı kullanmak isterseniz: [https://www.omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx) adresinden ücretsiz alıp `OMDB_API_KEY` değerini değiştirin
+
+### 3) Firebase Bağlantısı
+Kaynak kodu kendi Firebase projenizle çalıştırmak isterseniz:
+- [https://console.firebase.google.com](https://console.firebase.google.com) adresinden yeni bir proje açın
+- Android uygulama ekleyin, package adı: `com.example.odev`
+- `google-services.json` dosyasını indirip `app/` klasörüne yerleştirin
+- Firestore Database'i Test modunda başlatın
+
+### 4) Çalıştır
+- Emülatör veya gerçek cihazda **Run ▶** ile çalıştırın
 
 ## Ekran Yapısı
 
-1. **Ana Ekran (Listem):** Eklediğin filmler RecyclerView'da listelenir. Sağ alttaki + butonu yeni film aramaya götürür.
-2. **Arama Ekranı:** OMDb API'de film/dizi arar, sonuçları listeler.
-3. **Detay Ekranı:** Filmin detayını gösterir. "Listeme Ekle / Çıkar" ve "İzledim" işaretleme yapabilirsin.
+1. **Ana Ekran (Listem):** Eklenen filmler RecyclerView üzerinde liste halinde gösterilir. Sağ üstte profil ikonu, sağ altta yeni film ekleme butonu (FAB) bulunur.
+2. **Arama Ekranı:** OMDb API üzerinden film/dizi araması yapılır, sonuçlar liste halinde gösterilir.
+3. **Detay Ekranı:** Seçilen filmin posteri, IMDb puanı, özeti gösterilir. "Listeme Ekle / Çıkar" ve "İzledim" işlemleri buradan yapılır.
+4. **Profil Ekranı:** Kullanıcı adı, favori tür ve hakkımda alanları doldurulur. Hem yerel (SharedPreferences) hem buluta (Firestore) kaydedilir.
 
-## Notlar
+## Not
 
-- `google-services.json` ve API anahtarı .gitignore içindedir, repo'ya yüklenmez.
-- Min SDK: 24 (Android 7.0).
+- Min SDK: 24 (Android 7.0)
+- Target SDK: 36
