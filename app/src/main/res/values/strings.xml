@@ -34,4 +34,18 @@
     <string name="hata_genel">Bir hata oluştu</string>
     <string name="hata_apikey">API anahtarı eksik. Constants.java\'yı kontrol et.</string>
     <string name="izlendi_rozet">İzlendi</string>
+
+    <!-- Profil/Ayarlar -->
+    <string name="profil">Profil</string>
+    <string name="profil_baslik">Profil ve Ayarlar</string>
+    <string name="ad_hint">Adın</string>
+    <string name="favori_tur_hint">Favori türün (Aksiyon, Drama...)</string>
+    <string name="hakkimda_hint">Hakkımda</string>
+    <string name="yil_filtresi">Yıl filtresi</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="ayarlar_kaydedildi">Ayarların kaydedildi</string>
+    <string name="bilgi_ad">Ad:</string>
+    <string name="bilgi_favori">Favori tür:</string>
+    <string name="bilgi_hakkimda">Hakkımda:</string>
+    <string name="bilgi_yil">Yıl filtresi:</string>
 </resources>

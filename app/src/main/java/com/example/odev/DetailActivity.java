@@ -13,13 +13,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.odev.data.ApiClient;
-import com.example.odev.data.FirestoreHelper;
 import com.example.odev.data.Movie;
 import com.example.odev.data.MovieDetail;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,8 +43,8 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationOnClickListener(v -> finish());
+        // Geri ok butonu
+        findViewById(R.id.btnGeri).setOnClickListener(v -> finish());
 
         ivPoster = findViewById(R.id.ivPoster);
         tvBaslik = findViewById(R.id.tvBaslik);
@@ -80,7 +79,7 @@ public class DetailActivity extends AppCompatActivity {
     // Firestore'dan oku
     private void firestoreOku() {
         progress.setVisibility(View.VISIBLE);
-        FirestoreHelper.moviesCollection().document(imdbId).get()
+        FirebaseFirestore.getInstance().collection(Constants.MOVIES_COLLECTION).document(imdbId).get()
                 .addOnSuccessListener(doc -> {
                     if (doc.exists()) {
                         Movie m = doc.toObject(Movie.class);
@@ -116,7 +115,7 @@ public class DetailActivity extends AppCompatActivity {
                             d.getImdbId(), d.getTitle(), d.getYear(), d.getType(),
                             d.getPoster(), d.getPlot(), d.getImdbRating());
                     // Listede mi diye Firestore'dan kontrol et
-                    FirestoreHelper.moviesCollection().document(imdbId).get()
+                    FirebaseFirestore.getInstance().collection(Constants.MOVIES_COLLECTION).document(imdbId).get()
                             .addOnSuccessListener(doc -> {
                                 if (doc.exists()) {
                                     kayitli = true;
@@ -187,7 +186,7 @@ public class DetailActivity extends AppCompatActivity {
     private void ekleVeyaCikar() {
         if (aktifFilm == null) return;
         if (kayitli) {
-            FirestoreHelper.moviesCollection().document(imdbId).delete()
+            FirebaseFirestore.getInstance().collection(Constants.MOVIES_COLLECTION).document(imdbId).delete()
                     .addOnSuccessListener(a -> {
                         kayitli = false;
                         butonuYazdir();
@@ -198,7 +197,7 @@ public class DetailActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show());
         } else {
             aktifFilm.setAddedAt(System.currentTimeMillis());
-            FirestoreHelper.moviesCollection().document(imdbId).set(aktifFilm)
+            FirebaseFirestore.getInstance().collection(Constants.MOVIES_COLLECTION).document(imdbId).set(aktifFilm)
                     .addOnSuccessListener(a -> {
                         kayitli = true;
                         butonuYazdir();
@@ -215,7 +214,7 @@ public class DetailActivity extends AppCompatActivity {
         if (aktifFilm == null) return;
         aktifFilm.setWatched(watched);
         if (kayitli) {
-            FirestoreHelper.moviesCollection().document(imdbId)
+            FirebaseFirestore.getInstance().collection(Constants.MOVIES_COLLECTION).document(imdbId)
                     .update("watched", watched);
         }
     }

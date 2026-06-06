@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.odev.data.FirestoreHelper;
 import com.example.odev.data.Movie;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         rvFilmler = findViewById(R.id.rvFilmler);
         tvBosListe = findViewById(R.id.tvBosListe);
         FloatingActionButton fabEkle = findViewById(R.id.fabEkle);
+
+        // Sag ust profil ikonuna basinca profile ekranina git
+        findViewById(R.id.btnProfil).setOnClickListener(v -> {
+            Intent i = new Intent(this, ProfileActivity.class);
+            startActivity(i);
+        });
 
         // Liste icin adapter ve layout manager
         adapter = new MovieAdapter(this, liste, this::filmeTikla);
@@ -65,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Firestore'dan film listesini cek
     private void listeyiYukle() {
-        FirestoreHelper.moviesCollection()
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection(Constants.MOVIES_COLLECTION)
                 .orderBy("addedAt", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(snap -> {
