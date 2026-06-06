@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Film Listem</string>
+
+    <!-- Genel -->
+    <string name="ara">Ara</string>
+    <string name="geri">Geri</string>
+    <string name="yukleniyor">Yükleniyor...</string>
+
+    <!-- Ana ekran -->
+    <string name="ana_baslik">Film Listem</string>
+    <string name="bos_liste">Henüz film eklemedin.\nSağ alttaki + butonuna bas.</string>
+    <string name="yeni_film_ekle">Yeni film ekle</string>
+
+    <!-- Arama -->
+    <string name="arama_baslik">Film/Dizi Ara</string>
+    <string name="arama_hint">Film veya dizi adı yaz</string>
+    <string name="sonuc_yok">Sonuç bulunamadı</string>
+    <string name="lutfen_yaz">Lütfen bir şey yaz</string>
+
+    <!-- Detay -->
+    <string name="detay_baslik">Detay</string>
+    <string name="listeme_ekle">Listeme Ekle</string>
+    <string name="listemden_cikar">Listemden Çıkar</string>
+    <string name="izledim">İzledim</string>
+    <string name="yil">Yıl:</string>
+    <string name="tur">Tür:</string>
+    <string name="imdb_puan">IMDb:</string>
+    <string name="ozet">Özet</string>
+
+    <!-- Mesajlar -->
+    <string name="eklendi">Listeye eklendi</string>
+    <string name="cikarildi">Listeden çıkarıldı</string>
+    <string name="hata_internet">İnternet bağlantısı yok</string>
+    <string name="hata_genel">Bir hata oluştu</string>
+    <string name="hata_apikey">API anahtarı eksik. Constants.java\'yı kontrol et.</string>
+    <string name="izlendi_rozet">İzlendi</string>
+</resources>

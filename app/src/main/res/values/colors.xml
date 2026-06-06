@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- IMDb temasi: sari + koyu siyah -->
+    <color name="accent_yellow">#F5C518</color>
+    <color name="bg_dark">#121212</color>
+    <color name="surface_dark">#1F1F1F</color>
+    <color name="card_stroke">#2A2A2A</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+</resources>
