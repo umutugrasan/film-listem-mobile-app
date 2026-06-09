@@ -4,7 +4,7 @@ package com.example.odev;
 public class Constants {
 
     // OMDb API anahtari (https://www.omdbapi.com/apikey.aspx adresinden alinabilir)
-    // NOT: Anahtari github'a koymamak icin burada bos birak ve calistirmadan once doldur.
+
     public static final String OMDB_API_KEY = "91f93dce";
 
     // OMDb API'nin temel adresi

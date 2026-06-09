@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <!-- Poster -->
+
         <ImageView
             android:id="@+id/ivPoster"
             android:layout_width="80dp"
@@ -24,7 +24,7 @@
             android:background="@drawable/poster_placeholder"
             android:contentDescription="@string/app_name" />
 
-        <!-- Sag taraf: bilgiler -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"

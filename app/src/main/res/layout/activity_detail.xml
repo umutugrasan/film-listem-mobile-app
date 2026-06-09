@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:background="@color/bg_dark">
 
-    <!-- Ust bar (geri ok + baslik) -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -51,7 +51,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Buyuk poster -->
+
                 <ImageView
                     android:id="@+id/ivPoster"
                     android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                     android:background="@drawable/poster_placeholder"
                     android:contentDescription="@string/app_name" />
 
-                <!-- Baslik -->
+
                 <TextView
                     android:id="@+id/tvBaslik"
                     android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
-                <!-- Yil-Tur-Sure satiri -->
+
                 <TextView
                     android:id="@+id/tvAltBilgi"
                     android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
 
-                <!-- IMDb puan -->
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Ozet basligi -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
 
-                <!-- Izledim checkbox -->
+
                 <CheckBox
                     android:id="@+id/cbIzledim"
                     android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                     android:textColor="@color/text_primary"
                     android:buttonTint="@color/accent_yellow" />
 
-                <!-- Ekle/Cikar butonu -->
+
                 <Button
                     android:id="@+id/btnKaydet"
                     android:layout_width="match_parent"

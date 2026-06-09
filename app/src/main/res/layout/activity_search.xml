@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:background="@color/bg_dark">
 
-    <!-- Ust bar (geri ok + baslik) -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -35,7 +35,7 @@
 
     </LinearLayout>
 
-    <!-- Arama kutusu + buton -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,41 +1,43 @@
 # Film Listem
 
-Mobil Programlama dersi dönem sonu ödevi. Kullanıcının film/dizi izleme listesini tuttuğu basit bir Android uygulamasıdır.
+Mobil Programlama dersi dönem sonu ödevi. Kullanıcının film/dizi izleme listesini tuttuğu Android uygulamasıdır.
 
 ## Teslim İçeriği
 
-Bu ödev tek ZIP dosyası halinde yüklenmiştir:
+Ödev ZIP dosyasının içinde şu klasörler bulunur:
 
-- `film-listem.apk` — Doğrudan kuruluma hazır uygulama dosyası
-- `kaynak-kod.zip` (veya kaynak kod klasörü) — Tüm Java/XML dosyaları, incelenebilir kaynak kodu
+- **Odev/** — Android Studio'da geliştirilen Java kodları ve kaynak dosyaları
+- **apk/** — Doğrudan kuruluma hazır APK dosyası
+- **Ekran Görüntüleri/** — Firebase veritabanının aktif çalıştığına dair ekran görüntüleri
 
-**Hızlı test için:** `film-listem.apk` dosyasını bir Android telefona kopyalayıp kurmanız yeterlidir. Ekstra kurulum, anahtar girme veya yapılandırma gerekmez — Firebase ve OMDb API ayarları APK içerisine gömülüdür.
+**Hızlı test için:** `apk/` klasöründeki APK dosyasını bir Android telefona kopyalayıp kurmanız yeterlidir. Ekstra kurulum, anahtar girme veya yapılandırma gerekmez — Firebase ve OMDb API ayarları APK içerisine gömülüdür.
 
 ## Özellikler
 
-- Film/dizi ara (OMDb API ile)
-- Listeme ekle / listemden çıkar
-- Hangi filmi izledim işaretle
+- Film/dizi arama (OMDb API ile)
+- Listeme ekleme / listemden çıkarma
+- "İzledim" işaretleme
 - Profil bilgileri (ad, favori tür, hakkımda)
 - Tüm veriler bulut veritabanında (Firebase Firestore) tutulur
 
 ## Kullanılan Teknolojiler
 
-- Dil: Java
-- 4 farklı Activity:
-  - `MainActivity` — Film listesi
+- **Dil:** Java
+- **4 farklı Activity:**
+  - `MainActivity` — Film listesi (ana ekran)
   - `SearchActivity` — Film/dizi arama
   - `DetailActivity` — Film detayı
   - `ProfileActivity` — Profil ve ayarlar
-- Veritabanı: Firebase Firestore (bulut) + SharedPreferences (yerel — profil için)
-- Dış servis (API): OMDb API
-- UI: Material Components, RecyclerView, CardView
-- Görsel yükleme: Glide
-- Ağ kütüphanesi: Retrofit + Gson
+- **Veritabanı:** Firebase Firestore (bulut) + SharedPreferences (yerel — profil için)
+- **Dış servis (API):** OMDb API
+- **UI:** Material Components, RecyclerView, CardView
+- **Görsel yükleme:** Glide
+- **Ağ kütüphanesi:** Retrofit + Gson
+- **Tema:** IMDb stili sarı-siyah koyu tema
 
 ## APK ile Hızlı Kurulum (Önerilen)
 
-1. `film-listem.apk` dosyasını bir Android telefona kopyalayın (USB, e-mail, WhatsApp vb.)
+1. `apk/` klasöründeki APK dosyasını bir Android telefona kopyalayın (USB, e-mail, WhatsApp vb.)
 2. Telefonda APK dosyasına dokunun
 3. Çıkan uyarıda "Bilinmeyen kaynaklardan yüklemeye izin ver" seçeneğini onaylayın
 4. Uygulamayı kurun, açın, kullanın
@@ -47,8 +49,7 @@ Tüm Firebase ve OMDb API ayarları APK içerisindedir — ek bir adım gerekmez
 Eğer kaynak kodu Android Studio'da derlemek isterseniz:
 
 ### 1) Android Studio'da Aç
-- Kaynak kod ZIP'ini açın
-- Android Studio'da **File → Open** ile proje klasörünü seçin
+- `Odev/` klasörünü Android Studio'da **File → Open** ile açın
 - Gradle Sync tamamlanmasını bekleyin
 
 ### 2) OMDb API Anahtarı
@@ -76,3 +77,4 @@ Kaynak kodu kendi Firebase projenizle çalıştırmak isterseniz:
 
 - Min SDK: 24 (Android 7.0)
 - Target SDK: 36
+- Internet bağlantısı gereklidir (Firestore ve OMDb API için)

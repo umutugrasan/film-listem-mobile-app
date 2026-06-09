@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- IMDb temasi: sari + koyu siyah -->
+
     <color name="accent_yellow">#F5C518</color>
     <color name="bg_dark">#121212</color>
     <color name="surface_dark">#1F1F1F</color>
